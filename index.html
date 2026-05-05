@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CoreSkills</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .practice {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .complete {
+      background: #2196F3;
+      color: white;
+    }
+
+    #xp {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #log {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      height: 150px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>CoreSkills 🤸‍♀️</h1>
+
+<div id="xp">XP: 0</div>
+
+<div class="card">
+  <h3>Handstand</h3>
+  <p>Goal: Hold 5 seconds</p>
+  <button class="practice" onclick="practice('Handstand')">Practice</button>
+  <button class="complete" onclick="complete('Handstand')">Complete</button>
+</div>
+
+<div class="card">
+  <h3>Cartwheel</h3>
+  <p>Goal: Full cartwheel</p>
+  <button class="practice" onclick="practice('Cartwheel')">Practice</button>
+  <button class="complete" onclick="complete('Cartwheel')">Complete</button>
+</div>
+
+<h2>Activity Log 📊</h2>
+<div id="log"></div>
+
+<script>
+let xp = 0;
+
+function updateXP() {
+  document.getElementById("xp").textContent = "XP: " + xp;
+}
+
+function log(text) {
+  const div = document.getElementById("log");
+  const p = document.createElement("p");
+  p.textContent = "• " + text;
+  div.prepend(p);
+}
+
+function practice(skill) {
+  xp += 5;
+  updateXP();
+  log("Practiced " + skill + " (+5 XP)");
+}
+
+function complete(skill) {
+  xp += 20;
+  updateXP();
+  log("Completed " + skill + " 🎉 (+20 XP)");
+}
+</script>
+
+</body>
+</html>
